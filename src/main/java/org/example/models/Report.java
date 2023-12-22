@@ -4,13 +4,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Report {
-    ArrayList<Student> students = new ArrayList<>();
+    private ArrayList<Student> students = new ArrayList<>();
 
     public Report(ArrayList<Student> students) {
         this.students = students;
     }
 
-    public HashMap<Student, String> getTotalPoints() {
+    public ArrayList<Student> getStudents(){
+        return students;
+    }
+
+    /*public HashMap<Student, String> getTotalPoints() {
         HashMap<Student, String> report = new HashMap<>();
         StringBuilder totalPoints = new StringBuilder();
         for (var student : students) {
@@ -31,5 +35,13 @@ public class Report {
             report.put(student, totalPoints.toString());
         }
         return report;
+    }*/
+
+    public void report(){
+        for(var student: students){
+            System.out.printf(String.format("%s %s : Активность - %s; Упражнения - %s; ДЗ - %s; Семинарские - %s;",student.getName(),student.getGroup().name(),
+            student.getActivityPoints(), student.getExercisesPoints(), student.getHomeworksPoints(), student.getSeminaryPoints()));
+            System.out.println();
+        }
     }
 }
